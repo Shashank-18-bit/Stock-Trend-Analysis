@@ -24,7 +24,7 @@ end_date = st.sidebar.date_input('End Date')
 
 
 df = yf.download(ticker, start=start_date, end=end_date)
-st.subheader('Data for given data')
+st.subheader('Data for given dates')
 st.write(df.describe())
 
 # Plot 1 the behaviour
@@ -184,13 +184,13 @@ with compare_stocks:
         end_date = st.date_input("Enter the end date:")
 
 # Create a button to trigger the plot
-if st.button("Plot Comparison"):
-    # Validate inputs
-    if stock_symbol1 and stock_symbol2 and start_date < end_date:
-        # Call the function to plot the comparison
-        plot_stock_comparison(stock_symbol1, stock_symbol2, start_date, end_date)
-    else:
-        st.warning("Please provide valid inputs: stock symbols and a valid date range.")
+        if st.button("Plot Comparison"):
+                # Validate inputs
+                if stock_symbol1 and stock_symbol2 and start_date < end_date:
+                    # Call the function to plot the comparison
+                    plot_stock_comparison(stock_symbol1, stock_symbol2, start_date, end_date)
+                else:
+                    st.warning("Please provide valid inputs: stock symbols and a valid date range.")
 
 
 
